@@ -1,0 +1,351 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+KuaiLe&display=swap');
+
+:root {
+  --bg-start: #f9efe6;
+  --bg-end: #dff1ea;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-main: #1f2937;
+  --text-soft: #4b5563;
+  --line: rgba(15, 118, 110, 0.16);
+  --teal: #0f766e;
+  --teal-deep: #0b5f59;
+  --coral: #e76f51;
+  --warm: #f4a261;
+  --comfort: #b45309;
+  --shadow: 0 16px 36px rgba(15, 118, 110, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 999px;
+  filter: blur(3px);
+  opacity: 0.28;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.shape-a {
+  top: -80px;
+  right: -90px;
+  background: radial-gradient(circle at 30% 30%, #f59e0b, transparent 65%);
+}
+
+.shape-b {
+  bottom: -120px;
+  left: -80px;
+  background: radial-gradient(circle at 60% 40%, #14b8a6, transparent 70%);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 16px 40px;
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.hero {
+  border: 1px solid rgba(15, 118, 110, 0.12);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 10px 0 8px;
+  font-family: 'ZCOOL KuaiLe', 'Noto Sans SC', cursive;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #134e4a;
+}
+
+.subtext {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.gap-top {
+  margin-top: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+input[type='date'],
+input[type='text'] {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input[type='date']:focus,
+input[type='text']:focus {
+  border-color: rgba(15, 118, 110, 0.5);
+}
+
+#addTaskForm input {
+  flex: 1;
+  min-width: 180px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(110deg, var(--teal), #0d9488);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(15, 118, 110, 0.18);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+button.ghost {
+  background: #fff;
+  color: var(--teal-deep);
+  border: 1px solid var(--line);
+}
+
+button.accent {
+  background: linear-gradient(110deg, var(--coral), var(--warm));
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.meta {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.task-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.task-item input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 15px;
+}
+
+.task-title.done {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.task-delete {
+  border: 1px solid rgba(231, 111, 81, 0.2);
+  background: rgba(255, 237, 232, 0.8);
+  color: #9a3412;
+  padding: 6px 9px;
+  border-radius: 10px;
+}
+
+.empty-state {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.feedback {
+  border-left: 5px solid var(--teal);
+}
+
+.feedback.comfort {
+  border-left-color: var(--comfort);
+}
+
+.feedback p {
+  margin: 10px 0 0;
+  line-height: 1.65;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(31, 41, 55, 0.94);
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  z-index: 20;
+  animation: toast-in 0.25s ease;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: reveal 0.45s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 16px 12px 28px;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .compact-actions {
+    width: 100%;
+  }
+
+  .compact-actions button {
+    flex: 1;
+  }
+
+  #addTaskForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #addTaskForm button {
+    width: 100%;
+  }
+
+  .actions button {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .task-item {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'check title'
+      '. delete';
+  }
+
+  .task-item input[type='checkbox'] {
+    grid-area: check;
+  }
+
+  .task-item .task-title {
+    grid-area: title;
+  }
+
+  .task-delete {
+    grid-area: delete;
+    justify-self: end;
+  }
+}

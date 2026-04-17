@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="每日打卡" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <title>每日任务打卡</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg-shape shape-a"></div>
+  <div class="bg-shape shape-b"></div>
+
+  <main class="app-shell">
+    <header class="card hero reveal">
+      <p class="eyebrow">Daily Check-in</p>
+      <h1>每日任务打卡</h1>
+      <p class="subtext">单人版 · 本地保存 · 手机点图标就能用</p>
+      <div class="row wrap gap-top">
+        <button id="installBtn" class="ghost" type="button" hidden>安装到手机桌面</button>
+        <p id="installHint" class="meta"></p>
+      </div>
+    </header>
+
+    <section class="card reveal" style="--delay: 0.05s;">
+      <div class="row between wrap">
+        <label class="field">
+          <span>选择日期</span>
+          <input type="date" id="dateInput" />
+        </label>
+        <div class="row wrap compact-actions">
+          <button class="ghost" id="todayBtn" type="button">今天</button>
+          <button class="ghost" id="tomorrowBtn" type="button">明天</button>
+        </div>
+      </div>
+
+      <form id="addTaskForm" class="row gap-top">
+        <input id="taskInput" type="text" maxlength="80" placeholder="输入今天要做的任务，例如：阅读 30 分钟" required />
+        <button type="submit">添加任务</button>
+      </form>
+    </section>
+
+    <section class="card reveal" style="--delay: 0.1s;">
+      <div class="row between wrap">
+        <h2 class="section-title">任务列表</h2>
+        <p class="meta" id="taskMeta">0/0 完成</p>
+      </div>
+      <div id="taskList" class="task-list"></div>
+
+      <div class="actions row wrap gap-top">
+        <button class="accent" id="checkinBtn" type="button">今日打卡总结</button>
+        <button class="ghost" id="cloneBtn" type="button">未完成复制到明天</button>
+      </div>
+    </section>
+
+    <section id="feedbackCard" class="card feedback reveal" style="--delay: 0.15s;" hidden>
+      <h2 class="section-title">打卡反馈</h2>
+      <p id="feedbackText"></p>
+    </section>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
