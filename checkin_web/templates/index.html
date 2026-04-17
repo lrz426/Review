@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双人任务打卡</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="bg-shape shape-a"></div>
+    <div class="bg-shape shape-b"></div>
+
+    <main class="app-shell">
+        <header class="hero card reveal">
+            <p class="eyebrow">Daily Check-in</p>
+            <h1>双人任务打卡</h1>
+            <p class="subtext">按日期管理任务，完成就鼓励，没完成也有温柔提醒。</p>
+            <div class="user-switch" id="userSwitch"></div>
+        </header>
+
+        <section class="card reveal" style="--delay: 0.05s;">
+            <div class="row between wrap">
+                <label class="field">
+                    <span>选择日期</span>
+                    <input type="date" id="dateInput" />
+                </label>
+                <div class="row wrap compact-actions">
+                    <button class="ghost" id="todayBtn" type="button">今天</button>
+                    <button class="ghost" id="tomorrowBtn" type="button">明天</button>
+                </div>
+            </div>
+
+            <form id="addTaskForm" class="row gap-top">
+                <input id="taskInput" type="text" maxlength="80" placeholder="输入今天要做的任务，例如：晨跑 20 分钟" required />
+                <button type="submit">添加任务</button>
+            </form>
+        </section>
+
+        <section class="card reveal" style="--delay: 0.1s;">
+            <div class="row between wrap">
+                <h2 class="section-title">任务列表</h2>
+                <p class="meta" id="taskMeta">0/0 完成</p>
+            </div>
+            <div id="taskList" class="task-list"></div>
+
+            <div class="actions row wrap gap-top">
+                <button class="accent" id="checkinBtn" type="button">今日打卡总结</button>
+                <button class="ghost" id="cloneBtn" type="button">未完成复制到明天</button>
+            </div>
+        </section>
+
+        <section id="feedbackCard" class="card feedback reveal" style="--delay: 0.15s;" hidden>
+            <h2 class="section-title">打卡反馈</h2>
+            <p id="feedbackText"></p>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
